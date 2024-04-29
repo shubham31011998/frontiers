@@ -1,43 +1,53 @@
+import { AiOutlineHome } from "react-icons/ai";
+
 export const navLinks = [
     {
       label: "Home",
       route: "/",
       icon: "/assets/icons/home.svg",
+      iconImport: "home"
     },
     {
       label: "Image Restore",
       route: "/transformations/add/restore",
       icon: "/assets/icons/image.svg",
+      iconImport: "imageRestore"
     },
     {
       label: "Generative Fill",
       route: "/transformations/add/fill",
       icon: "/assets/icons/stars.svg",
+      iconImport: "generativeFill"
     },
     {
       label: "Object Remove",
       route: "/transformations/add/remove",
       icon: "/assets/icons/scan.svg",
+      iconImport: "objectRemove"
     },
     {
       label: "Object Recolor",
       route: "/transformations/add/recolor",
       icon: "/assets/icons/filter.svg",
+      iconImport: "objectRecolor"
     },
     {
       label: "Background Remove",
       route: "/transformations/add/removeBackground",
       icon: "/assets/icons/camera.svg",
+      iconImport: "backgroundRemove"
     },
     {
       label: "Profile",
       route: "/profile",
       icon: "/assets/icons/profile.svg",
+      iconImport: "profile"
     },
     {
       label: "Buy Credits",
       route: "/credits",
       icon: "/assets/icons/bag.svg",
+      iconImport: "buyCredits"
     },
   ];
   
