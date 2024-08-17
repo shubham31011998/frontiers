@@ -1,0 +1,22 @@
+.sidebarUIlink {
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+.sidebar-nav_elements{
+    gap: 0.2rem;
+}
+.sidebar-nav_element:hover {
+    background-color: #efeeff;
+    box-shadow: unset;
+}
+.sidebar-logo{
+    padding: 0 0 0 16px;
+}
+.closedSidebar{
+    width: 5rem;
+    padding: auto 6px;
+}
+.sidebar-nav_element{
+    border-radius: 7px;
+}

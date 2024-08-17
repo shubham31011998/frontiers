@@ -5,28 +5,40 @@ import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import React from 'react'
+import React, { useState } from 'react'
 import { Button } from '../ui/button';
 import { AiOutlineHome } from "react-icons/ai";
 import { PiImageSquare } from "react-icons/pi";
 import { LiaFillDripSolid } from "react-icons/lia";
 import { FaRegObjectUngroup } from "react-icons/fa6";
 import { IoColorPaletteOutline } from "react-icons/io5";
-import { PiSelectionBackgroundLight } from "react-icons/pi";
+import { VscLayoutMenubar } from "react-icons/vsc";
 import { CgProfile } from "react-icons/cg";
 import { BsCreditCard2Back } from "react-icons/bs";
+import SideMenuToggleBtn from '../ui/sideMenuToggleBtn';
 
 
 
 const Sidebar = () => {
+  const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
+
+  const sideBarToggle = ()=>{
+    setIsSideMenuOpen((prev)=> !prev);
+  }
+  
   const pathName = usePathname();
 
   return (
-    <aside className='sidebar'>
+    <aside className={`sidebar ${isSideMenuOpen ? "" : "closedSidebar"}`}>
       <div className="flex size-full flex-col gap-4">
-        <Link href={'/'} className='sidebar-logo'>
-          <Image src={"/assets/images/logo-text.svg"} alt='Logo' width={180} height={28} />
-        </Link>
+        <div className={`flex items-center ${isSideMenuOpen ? "" :"justify-center"}`}>
+          <SideMenuToggleBtn onClickHandler={sideBarToggle} />
+          {isSideMenuOpen &&
+              <Link href={'/'} className='sidebar-logo'>
+              <Image src={"/assets/images/logo-text.svg"} alt='Logo' width={180} height={28} />
+            </Link>
+          }
+        </div>
 
         <nav className='sidebar-nav'>
           <SignedIn>
@@ -36,7 +48,7 @@ const Sidebar = () => {
                 return (
                   <li key={link.route} className={`sidebar-nav_element group ${isActive ? 'bg-purple-gradient text-white' : 'text-gray-700'
                     }`}>
-                    <Link className='sidebar-link' href={link.route}>
+                    <Link className='sidebar-link sidebarUIlink' href={link.route}>
                       <span className={`${isActive && 'brightness-200'}`}>
                       {
                         link.iconImport === "home" ? <AiOutlineHome size={"22px"} />
@@ -44,11 +56,11 @@ const Sidebar = () => {
                           : link.iconImport === "generativeFill" ? <LiaFillDripSolid size={"22px"} />
                           : link.iconImport === "objectRemove" ? <FaRegObjectUngroup size={"22px"} />
                           : link.iconImport === "objectRecolor" ? <IoColorPaletteOutline size={"22px"} />
-                          : link.iconImport === "backgroundRemove" ? <PiSelectionBackgroundLight size={"22px"} />
+                          : link.iconImport === "backgroundRemove" ? <VscLayoutMenubar size={"22px"} />
                           : null
                       }
                       </span>
-                      {link.label}
+                      {isSideMenuOpen && link.label}
                     </Link>
                   </li>
                 )
@@ -62,7 +74,7 @@ const Sidebar = () => {
                 return (
                   <li key={link.route} className={`sidebar-nav_element group ${isActive ? 'bg-purple-gradient text-white' : 'text-gray-700'
                     }`}>
-                    <Link className='sidebar-link' href={link.route}>
+                    <Link className='sidebar-link sidebarUIlink' href={link.route}>
                     {
                       link.iconImport == "profile" ?  <CgProfile size={"22px"} /> :  <BsCreditCard2Back size={"22px"} />
                      }
@@ -73,14 +85,15 @@ const Sidebar = () => {
                         height={24}
                         className={`${isActive && 'brightness-200'}`}
                       /> */}
-                      {link.label}
+                      {isSideMenuOpen && link.label}
                     </Link>
                   </li>
                 )
               })}
-              <li className={'flex-center cursor-pointer gap-2 p-4'}>
+              {isSideMenuOpen &&
+              <li className={'flex-center cursor-pointer gap-2 p-4 border-t'}>
                 <UserButton afterSignOutUrl='/' showName />
-              </li>
+              </li>}
             </ul>
           </SignedIn>
 
