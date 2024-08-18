@@ -10,7 +10,7 @@ const SideMenuToggleBtn = ({onClickHandler}:any) => {
 
   return (
     <>
-      <CgMenuLeft onClick={onClickHandler} size={"30px"} />
+      <CgMenuLeft className='cursor-pointer' onClick={onClickHandler} size={"30px"} />
     </>
   )
 }

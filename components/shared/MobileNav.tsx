@@ -55,9 +55,9 @@ const MobileNav = () => {
                                         return (
                                             <li 
                                                 key={link.route} 
-                                                className={`${isActive && "text-indigo-600 bg-gray-200 rounded-3xl w-full"} p-18 flex whitespace-nowrap text-dark-700`}
+                                                className={`${isActive ? "text-white bg-black rounded-3xl w-full" : "text-black"} p-18 flex whitespace-nowrap `}
                                             >
-                                                <Link className='sidebar-link' href={link.route}>
+                                                <Link className='sidebar-link sidebarUIlink' href={link.route}>
                                                     <span>
                                                         {
                                                             link.iconImport === "home" ? <AiOutlineHome size={"22px"} />
