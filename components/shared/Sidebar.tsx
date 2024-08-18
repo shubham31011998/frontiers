@@ -5,7 +5,7 @@ import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button } from '../ui/button';
 import { AiOutlineHome } from "react-icons/ai";
 import { PiImageSquare } from "react-icons/pi";
@@ -16,17 +16,17 @@ import { VscLayoutMenubar } from "react-icons/vsc";
 import { CgProfile } from "react-icons/cg";
 import { BsCreditCard2Back } from "react-icons/bs";
 import SideMenuToggleBtn from '../ui/sideMenuToggleBtn';
+import { useSignIn } from '@clerk/clerk-react'
 
 
 
 const Sidebar = () => {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
-
   const sideBarToggle = ()=>{
     setIsSideMenuOpen((prev)=> !prev);
   }
-  
   const pathName = usePathname();
+  
 
   return (
     <aside className={`sidebar ${isSideMenuOpen ? "" : "closedSidebar"}`}>
@@ -46,8 +46,7 @@ const Sidebar = () => {
               {navLinks.slice(0, 6).map((link) => {
                 const isActive = link.route == pathName;
                 return (
-                  <li key={link.route} className={`sidebar-nav_element group ${isActive ? 'bg-black text-white' : 'text-gray-700'
-                    }`}>
+                  <li key={link.route} className={`sidebar-nav_element group ${isActive ? 'bg-black text-white' : 'text-gray-700'}`}>
                     <Link className='sidebar-link sidebarUIlink' href={link.route}>
                       <span className={`${isActive && 'brightness-200'}`}>
                       {
@@ -72,7 +71,7 @@ const Sidebar = () => {
               {navLinks.slice(6).map((link) => {
                 const isActive = link.route == pathName;
                 return (
-                  <li key={link.route} className={`sidebar-nav_element group ${isActive ? 'bg-purple-gradient text-white' : 'text-gray-700'
+                  <li key={link.route} className={`sidebar-nav_element group ${isActive ? 'bg-black text-white' : 'text-gray-700'
                     }`}>
                     <Link className='sidebar-link sidebarUIlink' href={link.route}>
                     {
@@ -97,11 +96,11 @@ const Sidebar = () => {
             </ul>
           </SignedIn>
 
-          <SignedOut>
+          {/* <SignedOut>
             <Button asChild className='button bg-purple-gradient bg-cover'>
               <Link href='/sign-in'>Login</Link>
             </Button>
-          </SignedOut>
+          </SignedOut> */}
         </nav>
       </div>
     </aside>
