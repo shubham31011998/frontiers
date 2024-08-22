@@ -27,7 +27,6 @@ export default function RootLayout({
     appearance={{
       variables: { colorPrimary: '#624cf5' }
     }}
-    
     >
       <html lang="en">
         <body className={cn("font-IBMPlex antialiased", Open_Sans_font.variable)}>

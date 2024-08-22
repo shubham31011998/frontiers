@@ -36,7 +36,6 @@ const MobileNav = () => {
             </Link>
             <nav className='flex gap-2'>
                 <SignedIn>
-                    <UserButton afterSignOutUrl="/" />
                     <Sheet>
                         <SheetTrigger>
                             <RiMenu2Line size={"22px"} />

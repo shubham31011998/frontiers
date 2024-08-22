@@ -1,7 +1,7 @@
 "use client";
 
 import { navLinks } from '@/constants'
-import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
+import { SignedIn, SignedOut, UserButton,useUser } from '@clerk/nextjs'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -17,17 +17,19 @@ import { CgProfile } from "react-icons/cg";
 import { BsCreditCard2Back } from "react-icons/bs";
 import SideMenuToggleBtn from '../ui/sideMenuToggleBtn';
 import { useSignIn } from '@clerk/clerk-react'
+import ProfileIcon from '../ui/profileIcon';
 
 
 
 const Sidebar = () => {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
+  
+
   const sideBarToggle = ()=>{
     setIsSideMenuOpen((prev)=> !prev);
   }
   const pathName = usePathname();
   
-
   return (
     <aside className={`sidebar ${isSideMenuOpen ? "" : "closedSidebar"}`}>
       <div className="flex size-full flex-col gap-4">
@@ -72,27 +74,27 @@ const Sidebar = () => {
                 const isActive = link.route == pathName;
                 return (
                   <li key={link.route} className={`sidebar-nav_element group ${isActive ? 'bg-black text-white' : 'text-gray-700'
-                    }`}>
+                    } ${link.iconImport == "profile" ? "profileCardLink" : ""}`}>
                     <Link className='sidebar-link sidebarUIlink' href={link.route}>
                     {
-                      link.iconImport == "profile" ?  <CgProfile size={"22px"} /> :  <BsCreditCard2Back size={"22px"} />
+                      link.iconImport == "profile" 
+                      ?  <ProfileIcon />
+                      :  <BsCreditCard2Back size={"22px"} />
                      }
-                      {/* <Image
-                        src={link.icon}
-                        alt='Logo'
-                        width={24}
-                        height={24}
-                        className={`${isActive && 'brightness-200'}`}
-                      /> */}
                       {isSideMenuOpen && link.label}
                     </Link>
                   </li>
                 )
               })}
-              {isSideMenuOpen &&
-              <li className={'flex-center cursor-pointer gap-2 p-4 border-t'}>
-                <UserButton afterSignOutUrl='/' showName />
-              </li>}
+              {/* {isSideMenuOpen ?
+              <li className={'sidebar-nav_element group text-gray-700'}>
+                <UserButton showName />
+              </li>
+              :
+              <li className={'sidebar-nav_element group text-gray-700'}>
+                <UserButton />
+              </li>
+              } */}
             </ul>
           </SignedIn>
 

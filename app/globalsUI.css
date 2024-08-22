@@ -50,3 +50,13 @@
     text-align: center;
     margin: auto;
 }
+.profileCardLink{
+    padding: 6px!important;
+}
+.profileCardLink .sidebarUIlink{
+    padding: 0;
+    align-items: center;
+}
+.profileCardLink img{
+    border-radius: 50%;
+}
