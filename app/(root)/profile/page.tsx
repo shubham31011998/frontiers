@@ -19,6 +19,7 @@ const Profile = async () => {
   return (
     <>
       {/* <Header title="Profile" /> */}
+      
 
       <section className="profile">
         <div className="profile-balance">
