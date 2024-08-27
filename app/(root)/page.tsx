@@ -7,10 +7,7 @@ const Home = () => {
   return (
     <div>
       <p>Home</p>
-      {/* <UserButton afterSignOutUrl='/' /> */}
-      <SignedOut>
-        <LoginBar />
-      </SignedOut>
+      
     </div>
   )
 }
