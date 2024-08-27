@@ -1,4 +1,4 @@
-import { auth } from "@clerk/nextjs";
+import { auth, UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 
@@ -19,7 +19,7 @@ const Profile = async () => {
   return (
     <>
       {/* <Header title="Profile" /> */}
-      
+              <UserButton />
 
       <section className="profile">
         <div className="profile-balance">

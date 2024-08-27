@@ -10,7 +10,7 @@
     gap: 0.5rem;
 }
 .sidebar-nav_element:hover {
-    background-color: #efeeff;
+    background-color: #c3b7dfa8;
     box-shadow: unset;
 }
 .sidebar-nav_element.bg-black:hover {

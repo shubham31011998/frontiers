@@ -34,7 +34,7 @@ const Sidebar = () => {
           <SideMenuToggleBtn onClickHandler={sideBarToggle} />
           {isSideMenuOpen &&
             <Link href={'/'} className='sidebar-logo'>
-              <Image src={"/assets/images/logo-text.svg"} alt='Logo' width={180} height={28} />
+              <Image src={"/assets/images/logo-text1.png"} alt='Logo' width={100} height={28} />
             </Link>
           }
         </div>
@@ -44,7 +44,7 @@ const Sidebar = () => {
             {navLinks.slice(0, 6).map((link) => {
               const isActive = link.route == pathName;
               return (
-                <li key={link.route} className={`sidebar-nav_element group ${isActive ? 'bg-black text-white' : 'text-gray-700'}`}>
+                <li key={link.route} className={`sidebar-nav_element group ${isActive ? 'bg-black text-white activeNavLink' : 'text-gray-700'}`}>
                   <Link className='sidebar-link sidebarUIlink' href={link.route}>
                     <span className={`${isActive && 'brightness-200'}`}>
                       {
@@ -82,9 +82,9 @@ const Sidebar = () => {
                 </li>
               )
             })}
-            <li className={'sidebar-nav_element group'}>
+            {/* <li className={'sidebar-nav_element group'}>
               <UserButton showName={isSideMenuOpen} />
-            </li>
+            </li> */}
           </ul>
 
           {/* <SignedOut>
