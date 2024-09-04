@@ -13,8 +13,8 @@ const Open_Sans_font = Open_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Frontiers",
-  description: "Frontiers: The AI-powered image editor revolutionizing creativity with intuitive controls and unparalleled design precision.",
+  title: "WebFrontiers🕸️",
+  description: "WebFrontiers: The AI-powered image editor revolutionizing creativity with intuitive controls and unparalleled design precision.",
 };
 
 export default function RootLayout({
@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <ClerkProvider
     appearance={{
-      variables: { colorPrimary: '#624cf5' }
+      variables: { colorPrimary: '#c3b7df' }
     }}
     >
       <html lang="en">

@@ -14,10 +14,15 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <div className="root-container">
         <SignedOut>
           <LoginBar />
+          <div className="">
+            {children}
+          </div>
         </SignedOut>
-        <div className="wrapper">
-          {children}
-        </div>
+        <SignedIn>
+          <div className="wrapper">
+            {children}
+          </div>
+        </SignedIn>
       </div>
     </main>
   )

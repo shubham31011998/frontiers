@@ -1,7 +1,6 @@
 "use client";
 
 import { navLinks } from '@/constants'
-import { UserButton } from '@clerk/nextjs'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
