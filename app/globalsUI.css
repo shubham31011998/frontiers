@@ -3,71 +3,88 @@
     font-size: 14px;
     font-weight: 600;
 }
-.sidebar-nav_elements{
+
+.sidebar-nav_elements {
     gap: 0.2rem;
 }
-.header-nav_elements{
+
+.header-nav_elements {
     gap: 0.5rem;
 }
+
 .sidebar-nav_element:hover {
     background-color: #c3b7dfa8;
     box-shadow: unset;
 }
+
 .sidebar-nav_element.bg-black:hover {
     background-color: #0c0c0c;
 }
-.sidebar-logo{
+
+.sidebar-logo {
     padding: 0 0 0 16px;
 }
+
 .sidebar {
     transition: width 0.2s ease-in-out;
     background: #f5f5f5;
     box-shadow: none;
     border-right: 1px dashed #d6d6d6;
 }
+
 .closedSidebar {
     width: 3.5rem;
     padding: 2px 6px;
 }
-.sidebar-nav_element{
+
+.sidebar-nav_element {
     border-radius: 7px;
 }
+
 .closedSidebar .sidebar-nav_element {
     border-radius: 50px;
     padding: 6px 1px;
 }
-.disableRoute:not(.bg-black){
+
+.disableRoute:not(.bg-black) {
     pointer-events: none;
     opacity: 0.5;
 }
+
 .loginBar {
     background: #f5f5f547;
-    backdrop-filter: blur( 7.5px );
-    -webkit-backdrop-filter: blur( 7.5px );
+    backdrop-filter: blur(7.5px);
+    -webkit-backdrop-filter: blur(7.5px);
     border: 1px solid rgb(255 255 255 / 19%);
     position: fixed;
     top: 0.5rem;
     text-align: center;
     margin: auto;
 }
-.profileCardLink{
-    padding: 6px!important;
+
+.profileCardLink {
+    padding: 6px !important;
 }
-.profileCardLink .sidebarUIlink{
+
+.profileCardLink .sidebarUIlink {
     padding: 0;
     align-items: center;
 }
-.profileCardLink img{
+
+.profileCardLink img {
     border-radius: 50%;
 }
-.root .root-container{
+
+.root .root-container {
     padding: 0;
 }
+
 .home {
-    height: 100vh; 
+    height: 100vh;
     border-radius: 0;
     border: none;
 }
+
 .logo-txt {
     width: 100%;
     font-size: 18px;
@@ -76,22 +93,45 @@
     text-transform: capitalize;
     font-weight: 600;
     color: #fff;
+    text-wrap: nowrap;
 }
+
 .home h1 {
     font-size: 34px;
     line-height: normal;
     font-weight: 300;
     margin-bottom: 20px;
 }
+
 .home h2 {
     font-size: 50px;
     /* text-transform: uppercase; */
     font-weight: 700;
 }
+
 .comingSoonLogo {
     color: transparent;
     /* width: 210px; */
     background: #fff;
     padding: 8px;
     width: 180px;
+}
+
+.marquee-container {
+    overflow: hidden;
+}
+
+.marquee {
+    display: inline-block;
+    animation: marquee-animation linear infinite;
+}
+
+@keyframes marquee-animation {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
 }
