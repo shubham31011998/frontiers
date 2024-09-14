@@ -1,4 +1,6 @@
+import AllImageContainer from '@/components/shared/AllImageContainer'
 import LoginBar from '@/components/shared/LoginBar'
+import SignedOutPage from '@/components/SignedOutPage/SignedOutPage'
 import { Button } from '@/components/ui/button'
 import { navLinks } from '@/constants'
 import { SignedOut, UserButton } from '@clerk/nextjs'
@@ -9,7 +11,7 @@ import React from 'react'
 const HomeMain = () => {
   return (
     <>
-      <SignedOut>
+      {/* <SignedOut>
         <section className="home">
           <Image src={"/assets/images/logo-text1.png"} className={"comingSoonLogo"} alt='Logo' width={100} height={28} />
           <h2 className="home-heading">
@@ -33,7 +35,8 @@ const HomeMain = () => {
             ))}
           </ul>
         </section>
-      </SignedOut>
+      </SignedOut> */}
+      <SignedOutPage />
     </>
   )
 }

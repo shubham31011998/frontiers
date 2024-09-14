@@ -5,6 +5,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 
 import "./globals.css";
 import "./globalsUI.css";
+import "./mediaquery.css";
 
 const Open_Sans_font = Open_Sans({ 
   subsets: ["latin"],

@@ -1,3 +1,6 @@
+html{
+    overflow-x: hidden;
+}
 .sidebarUIlink {
     padding: 5px 10px;
     font-size: 14px;
@@ -135,3 +138,105 @@
         transform: translateX(-100%);
     }
 }
+.allImgWrap {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+.allImgWrap div {
+    padding: 5px;
+}
+.allImgWrap image {
+    aspect-ratio: 16/9;
+}
+.mainWrap {
+    border-radius: 0 0 40px 40px;
+    /* max-height: 60vh; */
+    /* overflow: hidden; */
+}
+.colorAnimation {
+    background: linear-gradient(270deg, #49c32d, #2dc3b0, #732dc3, #c22dc3);
+    background-size: 800% 800%;
+
+    -webkit-animation: AnimationName 30s ease infinite;
+    -moz-animation: AnimationName 30s ease infinite;
+    animation: AnimationName 30s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.main{
+    position: relative;
+}
+
+.heroSection h1 {
+    z-index: 1;
+    position: relative;
+}
+.logo_svg {
+    display: inline-flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+.logo_svg .web_txt {
+    font-size: 7rem;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: -5px;
+}
+.logo_svg .frontier_txt {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transform: rotate(270deg);
+    display: flex;
+    position: relative;
+    bottom: -7px;
+    right: 20px;
+    padding: 2px 2px;
+    font-weight: 800;
+    background: #fff;
+    /* height: 30px; */
+}
+.heroSection{
+    align-content: center;
+    align-items: center;
+}
+.heroImage {
+    /* aspect-ratio: 9/16; */
+    /* width: 70%; */
+    border-radius: 20px;
+    max-width: 90%;
+    text-align: center;
+}
+.root-container {
+    margin-top: 0;
+    max-height: unset;
+    flex: 1 1 0%;
+    overflow: auto;
+    padding-top: 3rem!important;
+    padding-bottom: 2rem;
+}
+.tiltText {
+    background-color: #5e17eb;
+    color: #fff;
+    padding: 0 20px;
+    border-radius: 20px 0;
+}
+/* .hero_card{
+} */

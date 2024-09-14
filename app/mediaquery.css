@@ -1,0 +1,15 @@
+@media (min-width: 1024px) {
+    .root {
+        flex-direction: column;
+    }
+}
+
+
+
+
+@media (min-width: 768px) {
+    .md\:text-5xl {
+        font-size: 3rem;
+        line-height: 1.2;
+    }
+}
