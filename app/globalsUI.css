@@ -238,5 +238,16 @@ html{
     padding: 0 20px;
     border-radius: 20px 0;
 }
-/* .hero_card{
-} */
+
+.staticShadow_black{
+    box-shadow: 10px 10px #000;
+}
+.staticShadow_purple{
+    box-shadow: 10px 10px #5e17eb;
+}
+.bg-purple{
+    background-color: #5e17eb;
+}
+.hero_card{
+    cursor: unset;
+}
