@@ -1,11 +1,32 @@
+"use client"
 import { navLinks } from '@/constants';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
 import { IoImageOutline } from "react-icons/io5";
 import { Button } from '../ui/button';
+// Import Swiper React components
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
+
+
 
 const SignedOutPage = () => {
+    const options = {
+        type: 'loop',
+        drag: 'free',
+        focus: 'center',
+        autoScroll: {
+            speed: 1,
+        },
+        gap: '1.5rem',
+        pauseOnHover: false, // Ensure this is set to false
+        pauseOnFocus: false, // Add this line if needed
+        resetProgress: false,
+        perPage: 4,
+        pagination: false,
+        arrows: false,
+    };
     return (
         <div className='mainWrap px-9'>
             <div className="grid className text-center heroSection md:grid-cols-2 ">
@@ -64,7 +85,7 @@ const SignedOutPage = () => {
                         </div>
                     </div>
                 </div>
-                <div className="mx-auto flex justify-items-center flex-col md:items-start items-center heroSection_right">
+                <div className="mx-auto py-4 flex justify-items-center flex-col md:items-start items-center heroSection_right">
                     <Image
                         src={'/assets/images/heroimage.jpg'}
                         width={500}
@@ -78,20 +99,43 @@ const SignedOutPage = () => {
                     </div>
                 </div>
             </div>
-            {/* <ul className="flex-center w-full gap-20">
-                {navLinks.slice(1, 5).map((link) => (
-                    <Link
-                        key={link.route}
-                        href={''}
-                        className="flex-center flex-col gap-2"
-                    >
-                        <li className="flex-center w-fit rounded-full bg-white p-4">
-                            <Image src={link.icon} alt="image" width={24} height={24} />
-                        </li>
-                        <p className="p-14-medium text-center text-white">{link.label}</p>
-                    </Link>
-                ))}
-            </ul> */}
+            <div className="brandsWrap py-6">
+                <Splide
+                    aria-label="My Favorite Images"
+                    extensions={{ AutoScroll }}
+                    options={options}
+                >
+                    {navLinks.slice(1, 5).map((link) => (
+                        <SplideSlide key={link.route}>
+                            <div className="hero_card p-5 text-white  rounded-xl m-4 md:w-full text-left colorAnimation">
+                                <div className="flex justify-start items-center">
+                                    <Image src={'/assets/images/profile1.jpeg'}
+                                        width={30}
+                                        height={30}
+                                        alt="profile1"
+                                        className='ring ring-black m-1 ring-offset-2 ring-2 rounded-full'
+                                    />
+                                    <Image src={'/assets/images/profile2.jpg'}
+                                        width={40}
+                                        height={40}
+                                        alt="profile1"
+                                        className='relative ring ring-black m-1 ring-offset-2 ring-2 rounded-full -left-6'
+                                    />
+                                    <Image src={'/assets/images/profile3.jpg'}
+                                        width={50}
+                                        height={50}
+                                        alt="profile1"
+                                        className='relative ring ring-black m-1 ring-offset-2 ring-2 rounded-full -left-14'
+                                    />
+                                </div>
+                                <h2 className='text-xl font-bold pt-2 mb-2'>1000+ Active User</h2>
+                                <h2 className='text-sm font-normal'>Our online photo editor offers everything you need to enhance and edit photos effortlessly.</h2>
+                            </div>
+                        </SplideSlide>
+                    ))}
+                </Splide>
+            </div>
+
         </div>
     )
 }

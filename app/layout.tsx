@@ -7,6 +7,8 @@ import "./globals.css";
 import "./globalsUI.css";
 import "./mediaquery.css";
 
+import '@splidejs/react-splide/css';
+
 const Open_Sans_font = Open_Sans({ 
   subsets: ["latin"],
   weight: ['300', '400', '500', '600', '700','800'],
