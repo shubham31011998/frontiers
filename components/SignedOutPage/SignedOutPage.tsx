@@ -17,18 +17,24 @@ const SignedOutPage = () => {
         drag: 'free',
         focus: 'center',
         autoScroll: {
-            speed: 1,
+            speed: 0.5,
         },
         gap: '1.5rem',
         pauseOnHover: false, // Ensure this is set to false
         pauseOnFocus: false, // Add this line if needed
         resetProgress: false,
         perPage: 4,
+        breakpoints: {
+            640: {
+                perPage: 2,
+            },
+        },
         pagination: false,
         arrows: false,
+        autoWidth: true
     };
     return (
-        <div className='mainWrap px-9'>
+        <div className='mainWrap md:px-9 sm:px-3'>
             <div className="grid className text-center heroSection md:grid-cols-2 ">
                 {/* <Logo /> */}
                 <div className="mx-auto flex justify-items-center flex-col heroSection_left">
@@ -88,8 +94,8 @@ const SignedOutPage = () => {
                 <div className="mx-auto py-4 flex justify-items-center flex-col md:items-start items-center heroSection_right">
                     <Image
                         src={'/assets/images/heroimage.jpg'}
-                        width={500}
-                        height={500}
+                        width={400}
+                        height={400}
                         alt={"heroImage"}
                         style={{ objectFit: "contain" }}
                         className='heroImage'
@@ -100,6 +106,7 @@ const SignedOutPage = () => {
                 </div>
             </div>
             <div className="brandsWrap py-6">
+                <h2 className="text-3xl font-bold text-center py-5">Trusted by</h2>
                 <Splide
                     aria-label="My Favorite Images"
                     extensions={{ AutoScroll }}
@@ -107,30 +114,12 @@ const SignedOutPage = () => {
                 >
                     {navLinks.slice(1, 5).map((link) => (
                         <SplideSlide key={link.route}>
-                            <div className="hero_card p-5 text-white  rounded-xl m-4 md:w-full text-left colorAnimation">
-                                <div className="flex justify-start items-center">
-                                    <Image src={'/assets/images/profile1.jpeg'}
-                                        width={30}
-                                        height={30}
-                                        alt="profile1"
-                                        className='ring ring-black m-1 ring-offset-2 ring-2 rounded-full'
-                                    />
-                                    <Image src={'/assets/images/profile2.jpg'}
-                                        width={40}
-                                        height={40}
-                                        alt="profile1"
-                                        className='relative ring ring-black m-1 ring-offset-2 ring-2 rounded-full -left-6'
-                                    />
-                                    <Image src={'/assets/images/profile3.jpg'}
-                                        width={50}
-                                        height={50}
-                                        alt="profile1"
-                                        className='relative ring ring-black m-1 ring-offset-2 ring-2 rounded-full -left-14'
-                                    />
-                                </div>
-                                <h2 className='text-xl font-bold pt-2 mb-2'>1000+ Active User</h2>
-                                <h2 className='text-sm font-normal'>Our online photo editor offers everything you need to enhance and edit photos effortlessly.</h2>
-                            </div>
+                            <Image src={'/assets/images/profile3.jpg'}
+                                width={250}
+                                height={250}
+                                alt="profile1"
+                                className='my-4 relative m-1 rounded-xl -left-14'
+                            />
                         </SplideSlide>
                     ))}
                 </Splide>
